@@ -1,0 +1,885 @@
+Delivered-To: reginacasimiro@gmail.com
+Received: by 2002:ab0:22a:0:0:0:0:0 with SMTP id 39csp11031185uas;
+        Thu, 25 Jul 2019 04:44:03 -0700 (PDT)
+X-Google-Smtp-Source: APXvYqxaIZszvAAND15ZvSzhdeUaB6t7rwowXIdLAdwjEIDFw+zV3Ek5B8TH19//rGMfWIIryEI3
+X-Received: by 2002:a50:9729:: with SMTP id c38mr78618502edb.283.1564055043277;
+        Thu, 25 Jul 2019 04:44:03 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1564055043; cv=none;
+        d=google.com; s=arc-20160816;
+        b=GTXKfilyBXUQ+DXgeARjuLr0Nb3dEzk9MHyhHlQ/+D9dmO8VZ4ivtPsFa4XZ66q7a2
+         0G6q8Jm4eZS3M1+imwMKZTn+Lqmklvqw3nksOfxqAIVi39cSbsClBg6BhSFNZ40Tbh0/
+         t56Koz6YF3lGGgae4CQqXAUEvbyfov0b4R/EnloClKWDpstjvMPOcEP6/ksuM/A+btT4
+         JSEeIJDVF4stJxgZGOpDLqFkOhmMWcSNU6A4ZuaSRmbs9nTsj+y8APDe7mzNCHtGhbDU
+         cQKQRyVCY7x3ipYUSDHeNxxmMC3pPSreZPvELSlEYJ1hisXI3+Tny4aT6lYQrc0ku/hd
+         E9Ew==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:references:message-id:cc:date:in-reply-to:from:subject
+         :mime-version:dkim-signature;
+        bh=XnVTkrvZZaUxn/farvvI6kM5P12pbTmoPOH2YdGk5mQ=;
+        b=BAmWqRU7szhjLYMzoMT5NVp9wJgXdeQzKgtU7s7kZk8McOcBcsCj3uECBGSpLoo1Os
+         o7pLwDg+9Z4v1CU/RpXkDpVcgcHDgx+XiRtjAutajYPnUJvlb6W7c9hlvimV5GLssjPe
+         4tsjpkP8UMsoomkykTfGu7I5JZfreLJoD5/Qm8FY5q3swBMEu1TYRc9xDz12WRb2yxYF
+         MBY6N/Vy734IF2X0aRsoYaXl2/ICl4ypIHLyiypjgpfaeyveq0WXpWDlzLZs8LQ/BFTD
+         0Ct7gcCrLV6fzocVlF+75gCA3r3DZLhnl8S/wyFG1GP8xZyODSefU+zMnYbvw9GdqkKw
+         beyQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@ilobo.pt header.s=default header.b=IJ0diQIB;
+       spf=pass (google.com: domain of joaorosario@ilobo.pt designates 94.126.169.55 as permitted sender) smtp.mailfrom=joaorosario@ilobo.pt
+Return-Path: <joaorosario@ilobo.pt>
+Received: from mx05.host-services.com (mx05.host-services.com. [94.126.169.55])
+        by mx.google.com with ESMTPS id l18si39932567wrx.371.2019.07.25.04.44.02
+        for <reginacasimiro@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 25 Jul 2019 04:44:02 -0700 (PDT)
+Received-SPF: pass (google.com: domain of joaorosario@ilobo.pt designates 94.126.169.55 as permitted sender) client-ip=94.126.169.55;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@ilobo.pt header.s=default header.b=IJ0diQIB;
+       spf=pass (google.com: domain of joaorosario@ilobo.pt designates 94.126.169.55 as permitted sender) smtp.mailfrom=joaorosario@ilobo.pt
+Received: from cpanel28.dnscpanel.com ([94.126.169.129])
+	by mx05.host-services.com with esmtps (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256)
+	(Exim 4.89)
+	(envelope-from <joaorosario@ilobo.pt>)
+	id 1hqcAB-0004mK-OR
+	for reginacasimiro@gmail.com; Thu, 25 Jul 2019 12:44:02 +0100
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=ilobo.pt;
+	 s=default; h=To:References:Message-Id:Cc:Date:In-Reply-To:From:Subject:
+	Mime-Version:Content-Type:Sender:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=XnVTkrvZZaUxn/farvvI6kM5P12pbTmoPOH2YdGk5mQ=; b=IJ0diQIBjX6l9Gotnf4BRRShG9
+	iwmtsEMxCuod/nhosQ2PyasxtAwDvLrCaPAO7sSI2K/pF/M2HYlz49DZb3scRtvY8bS878+ZLOm0D
+	K65XouiM1XStAc3w1dz89GsZdEeC3I85KwiEmKMJyGc70Q8uqpctKxVBJDb02uF2K64PsU+37vtfs
+	81pPoGICLeACmiL4q0KOdNRvlZqdYZZ4F8+gKJYNbCkOlRJA18CMFAqHvHeJqEGF4Ds0O6bkMvpYo
+	K0/HVFtXnkOu3ioMj62J6hH21QR986j05g7v39J1aYluga8Ylez8WYDNDSumaLUwAZkht68qPE/qZ
+	arONut2g==;
+Received: from 230.211.108.93.rev.vodafone.pt ([93.108.211.230]:59523 helo=rosario.lan)
+	by cpanel28.dnscpanel.com with esmtpsa (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256)
+	(Exim 4.92)
+	(envelope-from <joaorosario@ilobo.pt>)
+	id 1hqcAA-0005Yn-G9; Thu, 25 Jul 2019 12:43:59 +0100
+Content-Type: multipart/alternative;
+	boundary="Apple-Mail=_6C962899-4781-4653-8F6C-0EFA15DB6DCA"
+Mime-Version: 1.0 (Mac OS X Mail 12.4 \(3445.104.11\))
+Subject: =?utf-8?Q?Re=3A_Fotos_do_p=C3=A1tio=2E=2E=2Eque_gostaria_de_ampli?=
+ =?utf-8?Q?ar_e_tornar_mais_harmonioso_?=
+From: =?utf-8?B?Sm/Do28gUm9zw6FyaW8=?= <joaorosario@ilobo.pt>
+In-Reply-To: <8EE3C193-6376-470C-BCDB-828032D3D82F@gmail.com>
+Date: Thu, 25 Jul 2019 12:43:58 +0100
+Cc: =?utf-8?Q?In=C3=AAs_Lobo?= <ineslobo@ilobo.pt>,
+ =?utf-8?B?Sm/Do28gVmF6?= <joaovaz@ilobo.pt>
+Message-Id: <3EEA8E33-F017-4859-8C18-137FDF9872EC@ilobo.pt>
+References: <8EE3C193-6376-470C-BCDB-828032D3D82F@gmail.com>
+To: Regina Casimiro <reginacasimiro@gmail.com>
+X-Mailer: Apple Mail (2.3445.104.11)
+X-OutGoing-Spam-Status: No, score=-1.0
+X-Get-Message-Sender-Via: cpanel28.dnscpanel.com: authenticated_id: joaorosario@ilobo.pt
+X-Authenticated-Sender: cpanel28.dnscpanel.com: joaorosario@ilobo.pt
+X-Originating-IP: 94.126.169.129
+X-SpamExperts-Domain: cpanel28.dnscpanel.com
+X-SpamExperts-Username: 94.126.169.129
+Authentication-Results: host-services.com; auth=pass smtp.auth=94.126.169.129@cpanel28.dnscpanel.com
+X-SpamExperts-Outgoing-Class: ham
+X-SpamExperts-Outgoing-Evidence: Combined (0.15)
+X-Recommended-Action: accept
+X-Filter-ID: Mvzo4OR0dZXEDF/gcnlw0STiPCilqAig5bem4hJMKBmpSDasLI4SayDByyq9LIhVUZbR67CQ7/vm
+ /hHDJU4RXkTNWdUk1Ol2OGx3IfrIJKywOmJyM1qr8uRnWBrbSAGDm3prTiQjOzh5mb5JChcAUdCZ
+ uw41o7gxXcnS4JswMebAqttRbaIoAUCYHn6kWzFnWmuNA8WTybi1JN85FSnfKfyrBBzCRb2oe4JC
+ Nd2sOpe/wwpJ2lFWYy1BAB9CIwtMWAltD/bG9/m1pMq2Q4OySku0NMLgXnBlNZIyQjO7LucoXsg1
+ EK2mGJLmR866pEiSadLoLWZZMPafwEHSBNJJ8KsTatsemRqB3fIy4cypAkiICshFp56ZN00qAbKh
+ x/ImWOInnYouU0uQnq/uaXgVJNO9Z5Oc3jQNmPAct+DaFyF7Qxsz5L7I5LIMtMpLFh0ldDr2WLJq
+ FULjiIcCiyuiCgTQeC2dL1Bxyk8yV+29SYTejKrj86RNAR2dx3BnnRgYMqcXSj2kfQg15G3bsQb+
+ PXwCY8vmv+JqOVJamBHfOGVwjn7Xut/lXagsodd5qqODTFiwcpU4fyz75jxpU98RPGiH1Wgh6RAe
+ nBR+licROGb6XnW3Jeq4muyR14/BoapeYP1WG6SjCMxXPQM9Fm2i1zvrwTVxQpQbQ10i3AMVCukV
+ yCIy1N3EfZspT/2uw+UsUxrKv6/FIRRB/BHphmepfv3QzxUBjDlIxq/CY6GWA8+LBDMrD7q/cJog
+ wbqzsuokWFW62fE/gJ+z7YcWCtcZXhrdazLCHmap1A7IYRsvwd4RDJLbP4Z24EiNaF02kR+Vg/1a
+ wiNBKXWF4rec1Qpp61FfEoXm0/FPF8PR0w363lmezMDZFhTPAYbjjSaa8hfOumHXledIN2OIQmiN
+ VNnQ/LnPJIJAnyw5ncweIJAZ91v/reX8W3rlPDHEAObSKOhGZjMv6PN41V03H2/ZNJy1m5lTSAK1
+ YlWD+ILB762B/QOjI3FMrvBrOtwQeThGVGcIXmWTPNyUtKvsm2bzYfrLIAWHalI3ymAwCC8gF3ew
+ N/yWp33KKvSLEepfzmW/VTBD
+X-Report-Abuse-To: spam@mx01.host-services.com
+
+
+--Apple-Mail=_6C962899-4781-4653-8F6C-0EFA15DB6DCA
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain;
+	charset=utf-8
+
+Regina cencio o Mapa com os Honor=C3=A1rios
+
+Fase
+Descri=C3=A7=C3=A3o=20
+Prazo
+
+Honor=C3=A1rios
+1. Concep=C3=A7=C3=A3o
+
+Defini=C3=A7=C3=A3o e dimensionamento dos espa=C3=A7os e sua =
+funcionalidade com base no Programa e Premissas apresentados.
+
+Nesta fase os elementos s=C3=A3o apresentados em formato A4. O documento =
+contem os seguintes elementos em geral:
+
+Pe=C3=A7as desenhadas
+Plantas , Al=C3=A7ados e Cortes que permitam ao cliente entender as =
+solu=C3=A7=C3=B5es propostas.
+
+Pe=C3=A7as escritas
+Mem=C3=B3ria descritiva
+60 dias
+
+Adjudica=C3=A7=C3=A3o
+
+=E2=82=AC500,00
+Entrega
+
+=E2=82=AC1 500,00
+2.2. Licenciamento
+Entrega do Projecto junto das entidades Licenciadoras
+
+60 dias
+
+Entrega
+
+=E2=82=AC2 500,00
+3. Execu=C3=A7=C3=A3o
+Elabora=C3=A7=C3=A3o do mapa de trabalhos e desenvolvimento dos =
+elementos de pormenor a fornecer ao empreiteiro.
+
+Acompanhamento dos trabalhos em Obra na resolu=C3=A7=C3=A3o e =
+implementa=C3=A7=C3=A3o dos principais aspectos do Projecto.
+60 dias
+Entrega
+
+=E2=82=AC2 500,00
+4. Assist=C3=AAncia T=C3=A9cnica
+10 meses
+
+500=E2=82=AC x10
+
+=E2=82=AC5 000,00
+
+Valor Arquitectura
+
+
+=E2=82=AC12 000,00
+
+Falta juntar o valor do mapa de trabalhos e or=C3=A7amento a retirar =
+posteriormente na fase de 3. Execu=C3=A7=C3=A3o
+
+
+Jo=C3=A3o Ros=C3=A1rio
+912346865
+
+
+
+
+Cal=C3=A7ada do Duque de Laf=C3=B5es 76,78,80
+1950 102 Lisboa =20
+
+M. mail@ilobo.pt
+W. www.ilobo.pt
+
+
+
+Aviso de Confidencialidade: Esta mensagem (e eventuais ficheiros anexos) =
+destina-se exclusivamente aos destinat=C3=A1rios nela indicados e pode =
+conter mat=C3=A9ria confidencial e legalmente protegida. Se recebeu esta =
+mensagem por engano, por favor informe de imediato o remetente e elimine =
+a mensagem e os ficheiros sem os reproduzir.
+
+Confidentiality Warning:: This message (and any files attached) is =
+intended only for the named addressees and may contain confidential and =
+privileged information. If you have received this message in error, =
+please contact the sender and delete the message and any files attached =
+without reproduction.
+
+
+
+
+
+
+> On 8 Apr 2019, at 20:35, Regina Casimiro <reginacasimiro@gmail.com> =
+wrote:
+>=20
+>=20
+>=20
+> <IMG_0214.JPG>
+>=20
+>=20
+>=20
+>=20
+>=20
+>=20
+>=20
+> <IMG_0216.JPG>
+>=20
+>=20
+> Enviado do meu iPhone
+
+
+--Apple-Mail=_6C962899-4781-4653-8F6C-0EFA15DB6DCA
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="Apple-Mail=_EB220AE4-A739-43F3-BF12-8DA4C8EDEAEC"
+
+
+--Apple-Mail=_EB220AE4-A739-43F3-BF12-8DA4C8EDEAEC
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html;
+	charset=utf-8
+
+<html><head><meta http-equiv=3D"Content-Type" content=3D"text/html; =
+charset=3Dutf-8"></head><body style=3D"word-wrap: break-word; =
+-webkit-nbsp-mode: space; line-break: after-white-space;" =
+class=3D"">Regina cencio o Mapa com os Honor=C3=A1rios<div class=3D""><br =
+class=3D""></div><div class=3D""><table cellspacing=3D"0" =
+cellpadding=3D"0" style=3D"border-collapse: collapse" class=3D"">
+<tbody class=3D"">
+<tr class=3D"">
+<td valign=3D"top" style=3D"width: 100.0px; height: 12.0px; =
+background-color: #b3b3b3; border-style: solid; border-width: 1.0px =
+1.0px 1.0px 1.0px; border-color: #cccccc #cccccc #cccccc #cccccc; =
+padding: 1.0px 1.0px 1.0px 1.0px" class=3D""><div style=3D"margin: 0px;" =
+class=3D""><font face=3D"Helvetica Neue" color=3D"#000000" =
+style=3D"font-stretch: normal; font-size: 10px; line-height: normal; =
+font-family: &quot;Helvetica Neue&quot;; -webkit-font-kerning: none; =
+font-variant-ligatures: common-ligatures;" class=3D"">Fase</font></div>
+</td>
+<td valign=3D"top" style=3D"width: 240.0px; height: 12.0px; =
+background-color: #b3b3b3; border-style: solid; border-width: 1.0px =
+1.0px 1.0px 1.0px; border-color: #cccccc #cccccc #cccccc #cccccc; =
+padding: 1.0px 1.0px 1.0px 1.0px" class=3D""><div style=3D"margin: 0px;" =
+class=3D""><font face=3D"Helvetica Neue" color=3D"#000000" =
+style=3D"font-stretch: normal; font-size: 10px; line-height: normal; =
+font-family: &quot;Helvetica Neue&quot;; -webkit-font-kerning: none; =
+font-variant-ligatures: common-ligatures;" =
+class=3D"">Descri=C3=A7=C3=A3o&nbsp;</font></div>
+</td>
+<td valign=3D"top" style=3D"width: 45.0px; height: 12.0px; =
+background-color: #b3b3b3; border-style: solid; border-width: 1.0px =
+1.0px 1.0px 1.0px; border-color: #cccccc #cccccc #cccccc #cccccc; =
+padding: 1.0px 1.0px 1.0px 1.0px" class=3D""><div style=3D"margin: 0px; =
+text-align: center;" class=3D""><font face=3D"Helvetica Neue" =
+color=3D"#000000" style=3D"font-stretch: normal; font-size: 10px; =
+line-height: normal; font-family: &quot;Helvetica Neue&quot;; =
+-webkit-font-kerning: none; font-variant-ligatures: common-ligatures;" =
+class=3D"">Prazo</font></div>
+</td>
+<td valign=3D"top" style=3D"width: 56.0px; height: 12.0px; =
+background-color: #b3b3b3; border-style: solid; border-width: 1.0px =
+1.0px 1.0px 1.0px; border-color: #cccccc #cccccc #cccccc #cccccc; =
+padding: 1.0px 1.0px 1.0px 1.0px" class=3D""><div style=3D"margin: 0px; =
+font-stretch: normal; font-size: 12px; line-height: normal; font-family: =
+Helvetica; min-height: 14px;" class=3D""><br class=3D""></div>
+</td>
+<td valign=3D"top" style=3D"width: 53.0px; height: 12.0px; =
+background-color: #b3b3b3; border-style: solid; border-width: 1.0px =
+1.0px 1.0px 1.0px; border-color: #cccccc #cccccc #cccccc #cccccc; =
+padding: 1.0px 1.0px 1.0px 1.0px" class=3D""><div style=3D"margin: 0px; =
+text-align: center;" class=3D""><font face=3D"Helvetica Neue" =
+color=3D"#000000" style=3D"font-stretch: normal; font-size: 10px; =
+line-height: normal; font-family: &quot;Helvetica Neue&quot;; =
+-webkit-font-kerning: none; font-variant-ligatures: common-ligatures;" =
+class=3D"">Honor=C3=A1rios</font></div>
+</td>
+</tr>
+<tr class=3D"">
+<td rowspan=3D"2" valign=3D"middle" style=3D"width: 100.0px; height: =
+145.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; =
+border-color: #cccccc #cccccc #cccccc #cccccc; padding: 1.0px 1.0px =
+1.0px 1.0px" class=3D""><div style=3D"margin: 0px; text-align: justify;" =
+class=3D""><font face=3D"Helvetica Neue" color=3D"#000000" =
+style=3D"font-stretch: normal; font-size: 9px; line-height: normal; =
+font-family: &quot;Helvetica Neue&quot;; -webkit-font-kerning: none; =
+font-variant-ligatures: common-ligatures;" class=3D""><b class=3D"">1. =
+Concep=C3=A7=C3=A3o</b></font></div><div style=3D"margin: 0px; =
+font-stretch: normal; font-size: 12px; line-height: normal; font-family: =
+Helvetica; min-height: 14px;" class=3D""><br class=3D""></div>
+</td>
+<td rowspan=3D"2" valign=3D"middle" style=3D"width: 240.0px; height: =
+145.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; =
+border-color: #cccccc #cccccc #cccccc #cccccc; padding: 1.0px 1.0px =
+1.0px 1.0px" class=3D""><p align=3D"justify" style=3D"margin: 0.0px =
+0.0px 12.0px 0.0px; text-align: justify" class=3D""><font =
+face=3D"Helvetica Neue" color=3D"#000000" style=3D"font-stretch: normal; =
+font-size: 9px; line-height: normal; font-family: &quot;Helvetica =
+Neue&quot;; -webkit-font-kerning: none; font-variant-ligatures: =
+common-ligatures;" class=3D"">Defini=C3=A7=C3=A3o e dimensionamento dos =
+espa=C3=A7os e sua funcionalidade com base no Programa e Premissas =
+apresentados.</font></p><div style=3D"margin: 0px; text-align: justify;" =
+class=3D""><font face=3D"Helvetica Neue" color=3D"#000000" =
+style=3D"font-stretch: normal; font-size: 9px; line-height: normal; =
+font-family: &quot;Helvetica Neue&quot;; -webkit-font-kerning: none; =
+font-variant-ligatures: common-ligatures;" class=3D"">Nesta fase os =
+elementos s=C3=A3o apresentados em formato A4. O documento contem os =
+seguintes elementos em geral:</font></div><div style=3D"margin: 0px; =
+text-align: justify; font-stretch: normal; font-size: 9px; line-height: =
+normal; font-family: &quot;Helvetica Neue&quot;; min-height: 11px;" =
+class=3D""><font style=3D"font-kerning: none; font-variant-ligatures: =
+common-ligatures" class=3D""></font><br class=3D""></div><div =
+style=3D"margin: 0px; text-align: justify;" class=3D""><font =
+face=3D"Helvetica Neue" color=3D"#000000" style=3D"font-stretch: normal; =
+font-size: 9px; line-height: normal; font-family: &quot;Helvetica =
+Neue&quot;; -webkit-font-kerning: none; font-variant-ligatures: =
+common-ligatures;" class=3D""><b class=3D"">Pe=C3=A7as =
+desenhadas</b></font></div><div style=3D"margin: 0px; text-align: =
+justify;" class=3D""><font face=3D"Helvetica Neue" color=3D"#000000" =
+style=3D"font-stretch: normal; font-size: 9px; line-height: normal; =
+font-family: &quot;Helvetica Neue&quot;; -webkit-font-kerning: none; =
+font-variant-ligatures: common-ligatures;" class=3D"">Plantas , Al=C3=A7ad=
+os e Cortes que permitam ao cliente entender as solu=C3=A7=C3=B5es =
+propostas.</font></div><div style=3D"margin: 0px; text-align: justify; =
+font-stretch: normal; font-size: 9px; line-height: normal; font-family: =
+&quot;Helvetica Neue&quot;; min-height: 11px;" class=3D""><font =
+style=3D"font-kerning: none; font-variant-ligatures: common-ligatures" =
+class=3D""></font><br class=3D""></div><div style=3D"margin: 0px; =
+text-align: justify;" class=3D""><font face=3D"Helvetica Neue" =
+color=3D"#000000" style=3D"font-stretch: normal; font-size: 9px; =
+line-height: normal; font-family: &quot;Helvetica Neue&quot;; =
+-webkit-font-kerning: none; font-variant-ligatures: common-ligatures;" =
+class=3D""><b class=3D"">Pe=C3=A7as escritas</b></font></div><div =
+style=3D"margin: 0px; text-align: justify;" class=3D""><font =
+face=3D"Helvetica Neue" color=3D"#000000" style=3D"font-stretch: normal; =
+font-size: 9px; line-height: normal; font-family: &quot;Helvetica =
+Neue&quot;; -webkit-font-kerning: none; font-variant-ligatures: =
+common-ligatures;" class=3D"">Mem=C3=B3ria descritiva</font></div>
+</td>
+<td rowspan=3D"2" valign=3D"middle" style=3D"width: 45.0px; height: =
+145.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; =
+border-color: #cccccc #cccccc #cccccc #cccccc; padding: 1.0px 1.0px =
+1.0px 1.0px" class=3D""><p align=3D"center" style=3D"margin: 0.0px 0.0px =
+12.0px 0.0px; text-align: center" class=3D""><font face=3D"Helvetica =
+Neue" color=3D"#000000" style=3D"font-stretch: normal; font-size: 9px; =
+line-height: normal; font-family: &quot;Helvetica Neue&quot;; =
+-webkit-font-kerning: none; font-variant-ligatures: common-ligatures;" =
+class=3D"">60 dias</font></p>
+</td>
+<td valign=3D"middle" style=3D"width: 56.0px; height: 71.0px; =
+border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; =
+border-color: #cccccc #cccccc #cccccc #cccccc; padding: 1.0px 1.0px =
+1.0px 1.0px" class=3D""><p align=3D"center" style=3D"margin: 0.0px 0.0px =
+12.0px 0.0px; text-align: center" class=3D""><font face=3D"Helvetica =
+Neue" color=3D"#000000" style=3D"font-stretch: normal; font-size: 9px; =
+line-height: normal; font-family: &quot;Helvetica Neue&quot;; =
+-webkit-font-kerning: none; font-variant-ligatures: common-ligatures;" =
+class=3D"">Adjudica=C3=A7=C3=A3o</font></p>
+</td>
+<td valign=3D"middle" style=3D"width: 53.0px; height: 71.0px; =
+border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; =
+border-color: #cccccc #cccccc #cccccc #cccccc; padding: 1.0px 1.0px =
+1.0px 1.0px" class=3D""><div style=3D"margin: 0px; text-align: center;" =
+class=3D""><font face=3D"Helvetica Neue" color=3D"#000000" =
+style=3D"font-stretch: normal; font-size: 9px; line-height: normal; =
+font-family: &quot;Helvetica Neue&quot;; -webkit-font-kerning: none; =
+font-variant-ligatures: common-ligatures;" class=3D""><b =
+class=3D"">=E2=82=AC500,00</b></font></div>
+</td>
+</tr>
+<tr class=3D"">
+<td valign=3D"middle" style=3D"width: 56.0px; height: 71.0px; =
+border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; =
+border-color: #cccccc #cccccc #cccccc #cccccc; padding: 1.0px 1.0px =
+1.0px 1.0px" class=3D""><p align=3D"center" style=3D"margin: 0.0px 0.0px =
+12.0px 0.0px; text-align: center" class=3D""><font face=3D"Helvetica =
+Neue" color=3D"#000000" style=3D"font-stretch: normal; font-size: 9px; =
+line-height: normal; font-family: &quot;Helvetica Neue&quot;; =
+-webkit-font-kerning: none; font-variant-ligatures: common-ligatures;" =
+class=3D"">Entrega</font></p>
+</td>
+<td valign=3D"middle" style=3D"width: 53.0px; height: 71.0px; =
+border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; =
+border-color: #cccccc #cccccc #cccccc #cccccc; padding: 1.0px 1.0px =
+1.0px 1.0px" class=3D""><div style=3D"margin: 0px; text-align: center;" =
+class=3D""><font face=3D"Helvetica Neue" color=3D"#000000" =
+style=3D"font-stretch: normal; font-size: 9px; line-height: normal; =
+font-family: &quot;Helvetica Neue&quot;; -webkit-font-kerning: none; =
+font-variant-ligatures: common-ligatures;" class=3D""><b =
+class=3D"">=E2=82=AC1&nbsp;500,00</b></font></div>
+</td>
+</tr>
+<tr class=3D"">
+<td valign=3D"middle" style=3D"width: 100.0px; height: 13.0px; =
+border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; =
+border-color: #cccccc #cccccc #cccccc #cccccc; padding: 1.0px 1.0px =
+1.0px 1.0px" class=3D""><div style=3D"margin: 0px; text-align: justify;" =
+class=3D""><font face=3D"Helvetica Neue" color=3D"#000000" =
+style=3D"font-stretch: normal; font-size: 9px; line-height: normal; =
+font-family: &quot;Helvetica Neue&quot;; -webkit-font-kerning: none; =
+font-variant-ligatures: common-ligatures;" class=3D"">2.2. =
+Licenciamento</font></div>
+</td>
+<td valign=3D"middle" style=3D"width: 240.0px; height: 13.0px; =
+border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; =
+border-color: #cccccc #cccccc #cccccc #cccccc; padding: 1.0px 1.0px =
+1.0px 1.0px" class=3D""><p align=3D"justify" style=3D"margin: 0.0px =
+0.0px 12.0px 0.0px; text-align: justify" class=3D""><font =
+face=3D"Helvetica Neue" color=3D"#000000" style=3D"font-stretch: normal; =
+font-size: 9px; line-height: normal; font-family: &quot;Helvetica =
+Neue&quot;; -webkit-font-kerning: none; font-variant-ligatures: =
+common-ligatures;" class=3D"">Entrega do Projecto junto das entidades =
+Licenciadoras</font></p>
+</td>
+<td valign=3D"middle" style=3D"width: 45.0px; height: 13.0px; =
+border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; =
+border-color: #cccccc #cccccc #cccccc #cccccc; padding: 1.0px 1.0px =
+1.0px 1.0px" class=3D""><p align=3D"center" style=3D"margin: 0.0px 0.0px =
+12.0px 0.0px; text-align: center" class=3D""><font face=3D"Helvetica =
+Neue" color=3D"#000000" style=3D"font-stretch: normal; font-size: 9px; =
+line-height: normal; font-family: &quot;Helvetica Neue&quot;; =
+-webkit-font-kerning: none; font-variant-ligatures: common-ligatures;" =
+class=3D"">60 dias</font></p>
+</td>
+<td valign=3D"middle" style=3D"width: 56.0px; height: 13.0px; =
+border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; =
+border-color: #cccccc #cccccc #cccccc #cccccc; padding: 1.0px 1.0px =
+1.0px 1.0px" class=3D""><p align=3D"center" style=3D"margin: 0.0px 0.0px =
+12.0px 0.0px; text-align: center" class=3D""><font face=3D"Helvetica =
+Neue" color=3D"#000000" style=3D"font-stretch: normal; font-size: 9px; =
+line-height: normal; font-family: &quot;Helvetica Neue&quot;; =
+-webkit-font-kerning: none; font-variant-ligatures: common-ligatures;" =
+class=3D"">Entrega</font></p>
+</td>
+<td valign=3D"middle" style=3D"width: 53.0px; height: 13.0px; =
+border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; =
+border-color: #cccccc #cccccc #cccccc #cccccc; padding: 1.0px 1.0px =
+1.0px 1.0px" class=3D""><div style=3D"margin: 0px; text-align: center;" =
+class=3D""><font face=3D"Helvetica Neue" color=3D"#000000" =
+style=3D"font-stretch: normal; font-size: 9px; line-height: normal; =
+font-family: &quot;Helvetica Neue&quot;; -webkit-font-kerning: none; =
+font-variant-ligatures: common-ligatures;" =
+class=3D"">=E2=82=AC2&nbsp;500,00</font></div>
+</td>
+</tr>
+<tr class=3D"">
+<td valign=3D"middle" style=3D"width: 100.0px; height: 35.0px; =
+border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; =
+border-color: #cccccc #cccccc #cccccc #cccccc; padding: 1.0px 1.0px =
+1.0px 1.0px" class=3D""><div style=3D"margin: 0px; text-align: justify;" =
+class=3D""><font face=3D"Helvetica Neue" color=3D"#000000" =
+style=3D"font-stretch: normal; font-size: 9px; line-height: normal; =
+font-family: &quot;Helvetica Neue&quot;; -webkit-font-kerning: none; =
+font-variant-ligatures: common-ligatures;" class=3D"">3. =
+Execu=C3=A7=C3=A3o</font></div>
+</td>
+<td rowspan=3D"2" valign=3D"middle" style=3D"width: 240.0px; height: =
+71.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; =
+border-color: #cccccc #cccccc #cccccc #cccccc; padding: 1.0px 1.0px =
+1.0px 1.0px" class=3D""><div style=3D"margin: 0px; text-align: justify;" =
+class=3D""><font face=3D"Helvetica Neue" color=3D"#000000" =
+style=3D"font-stretch: normal; font-size: 9px; line-height: normal; =
+font-family: &quot;Helvetica Neue&quot;; -webkit-font-kerning: none; =
+font-variant-ligatures: common-ligatures;" class=3D"">Elabora=C3=A7=C3=A3o=
+ do mapa de trabalhos e desenvolvimento dos elementos de pormenor a =
+fornecer ao empreiteiro.</font></div><div style=3D"margin: 0px; =
+text-align: justify; font-stretch: normal; font-size: 9px; line-height: =
+normal; font-family: Helvetica; min-height: 9px;" class=3D""><font =
+style=3D"font-kerning: none; font-variant-ligatures: common-ligatures" =
+class=3D""></font><br class=3D""></div><div style=3D"margin: 0px; =
+text-align: justify;" class=3D""><font face=3D"Helvetica Neue" =
+color=3D"#000000" style=3D"font-stretch: normal; font-size: 9px; =
+line-height: normal; font-family: &quot;Helvetica Neue&quot;; =
+-webkit-font-kerning: none; font-variant-ligatures: common-ligatures;" =
+class=3D"">Acompanhamento dos trabalhos em Obra na resolu=C3=A7=C3=A3o e =
+implementa=C3=A7=C3=A3o dos principais aspectos do =
+Projecto.</font></div>
+</td>
+<td valign=3D"middle" style=3D"width: 45.0px; height: 35.0px; =
+border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; =
+border-color: #cccccc #cccccc #cccccc #cccccc; padding: 1.0px 1.0px =
+1.0px 1.0px" class=3D""><div style=3D"margin: 0px; text-align: center;" =
+class=3D""><font face=3D"Helvetica Neue" color=3D"#000000" =
+style=3D"font-stretch: normal; font-size: 9px; line-height: normal; =
+font-family: &quot;Helvetica Neue&quot;; -webkit-font-kerning: none; =
+font-variant-ligatures: common-ligatures;" class=3D"">60 =
+dias</font></div>
+</td>
+<td valign=3D"middle" style=3D"width: 56.0px; height: 35.0px; =
+border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; =
+border-color: #cccccc #cccccc #cccccc #cccccc; padding: 1.0px 1.0px =
+1.0px 1.0px" class=3D""><p align=3D"center" style=3D"margin: 0.0px 0.0px =
+12.0px 0.0px; text-align: center" class=3D""><font face=3D"Helvetica =
+Neue" color=3D"#000000" style=3D"font-stretch: normal; font-size: 9px; =
+line-height: normal; font-family: &quot;Helvetica Neue&quot;; =
+-webkit-font-kerning: none; font-variant-ligatures: common-ligatures;" =
+class=3D"">Entrega</font></p>
+</td>
+<td valign=3D"middle" style=3D"width: 53.0px; height: 35.0px; =
+border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; =
+border-color: #cccccc #cccccc #cccccc #cccccc; padding: 1.0px 1.0px =
+1.0px 1.0px" class=3D""><div style=3D"margin: 0px; text-align: center;" =
+class=3D""><font face=3D"Helvetica Neue" color=3D"#000000" =
+style=3D"font-stretch: normal; font-size: 9px; line-height: normal; =
+font-family: &quot;Helvetica Neue&quot;; -webkit-font-kerning: none; =
+font-variant-ligatures: common-ligatures;" =
+class=3D"">=E2=82=AC2&nbsp;500,00</font></div>
+</td>
+</tr>
+<tr class=3D"">
+<td valign=3D"middle" style=3D"width: 100.0px; height: 33.0px; =
+border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; =
+border-color: #cccccc #cccccc #cccccc #cccccc; padding: 1.0px 1.0px =
+1.0px 1.0px" class=3D""><div style=3D"margin: 0px; text-align: justify;" =
+class=3D""><font face=3D"Helvetica Neue" color=3D"#000000" =
+style=3D"font-stretch: normal; font-size: 9px; line-height: normal; =
+font-family: &quot;Helvetica Neue&quot;; -webkit-font-kerning: none; =
+font-variant-ligatures: common-ligatures;" class=3D"">4. Assist=C3=AAncia =
+T=C3=A9cnica</font></div>
+</td>
+<td valign=3D"middle" style=3D"width: 45.0px; height: 33.0px; =
+border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; =
+border-color: #cccccc #cccccc #cccccc #cccccc; padding: 1.0px 1.0px =
+1.0px 1.0px" class=3D""><p align=3D"center" style=3D"margin: 0.0px 0.0px =
+12.0px 0.0px; text-align: center" class=3D""><font face=3D"Helvetica =
+Neue" color=3D"#000000" style=3D"font-stretch: normal; font-size: 9px; =
+line-height: normal; font-family: &quot;Helvetica Neue&quot;; =
+-webkit-font-kerning: none; font-variant-ligatures: common-ligatures;" =
+class=3D"">10 meses</font></p>
+</td>
+<td valign=3D"middle" style=3D"width: 56.0px; height: 33.0px; =
+border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; =
+border-color: #cccccc #cccccc #cccccc #cccccc; padding: 1.0px 1.0px =
+1.0px 1.0px" class=3D""><p align=3D"center" style=3D"margin: 0.0px 0.0px =
+12.0px 0.0px; text-align: center" class=3D""><font face=3D"Helvetica =
+Neue" color=3D"#000000" style=3D"font-stretch: normal; font-size: 9px; =
+line-height: normal; font-family: &quot;Helvetica Neue&quot;; =
+-webkit-font-kerning: none; font-variant-ligatures: common-ligatures;" =
+class=3D"">500=E2=82=AC x10</font></p>
+</td>
+<td valign=3D"middle" style=3D"width: 53.0px; height: 33.0px; =
+border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; =
+border-color: #cccccc #cccccc #cccccc #cccccc; padding: 1.0px 1.0px =
+1.0px 1.0px" class=3D""><div style=3D"margin: 0px; text-align: center;" =
+class=3D""><font face=3D"Helvetica Neue" color=3D"#000000" =
+style=3D"font-stretch: normal; font-size: 9px; line-height: normal; =
+font-family: &quot;Helvetica Neue&quot;; -webkit-font-kerning: none; =
+font-variant-ligatures: common-ligatures;" =
+class=3D"">=E2=82=AC5&nbsp;000,00</font></div>
+</td>
+</tr>
+<tr class=3D"">
+<td valign=3D"middle" style=3D"width: 100.0px; height: 24.0px; =
+border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; =
+border-color: #cccccc #cccccc #cccccc #cccccc; padding: 1.0px 1.0px =
+1.0px 1.0px" class=3D""><div style=3D"margin: 0px; font-stretch: normal; =
+font-size: 12px; line-height: normal; font-family: Helvetica; =
+min-height: 14px;" class=3D""><br class=3D""></div>
+</td>
+<td valign=3D"middle" style=3D"width: 232.0px; height: 16.0px; =
+border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; =
+border-color: #cccccc #cccccc #cccccc #cccccc; padding: 5.0px 5.0px =
+5.0px 5.0px" class=3D""><div style=3D"margin: 0px; text-align: justify;" =
+class=3D""><font face=3D"Helvetica" color=3D"#000000" =
+style=3D"font-stretch: normal; font-size: 9px; line-height: normal; =
+font-family: Helvetica; -webkit-font-kerning: none; =
+font-variant-ligatures: common-ligatures;" class=3D"">Valor =
+Arquitectura</font></div>
+</td>
+<td valign=3D"top" style=3D"width: 37.0px; height: 16.0px; border-style: =
+solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #cccccc =
+#cccccc #cccccc #cccccc; padding: 5.0px 5.0px 5.0px 5.0px" class=3D""><div=
+ style=3D"margin: 0px; font-stretch: normal; font-size: 12px; =
+line-height: normal; font-family: Helvetica; min-height: 14px;" =
+class=3D""><br class=3D""></div>
+</td>
+<td valign=3D"top" style=3D"width: 48.0px; height: 16.0px; border-style: =
+solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #cccccc =
+#cccccc #cccccc #cccccc; padding: 5.0px 5.0px 5.0px 5.0px" class=3D""><div=
+ style=3D"margin: 0px; font-stretch: normal; font-size: 12px; =
+line-height: normal; font-family: Helvetica; min-height: 14px;" =
+class=3D""><br class=3D""></div>
+</td>
+<td valign=3D"middle" style=3D"width: 53.0px; height: 24.0px; =
+border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; =
+border-color: #cccccc #cccccc #cccccc #cccccc; padding: 1.0px 1.0px =
+1.0px 1.0px" class=3D""><div style=3D"margin: 0px; text-align: center;" =
+class=3D""><font face=3D"Helvetica Neue" color=3D"#000000" =
+style=3D"font-stretch: normal; font-size: 9px; line-height: normal; =
+font-family: &quot;Helvetica Neue&quot;; -webkit-font-kerning: none; =
+font-variant-ligatures: common-ligatures;" class=3D""><b =
+class=3D"">=E2=82=AC12&nbsp;000,00</b></font></div>
+</td>
+</tr>
+</tbody>
+</table><div class=3D""><br class=3D""></div>Falta juntar o valor do =
+mapa de trabalhos e or=C3=A7amento a retirar posteriormente na fase de =
+3. Execu=C3=A7=C3=A3o</div><div class=3D""><br class=3D""></div><div =
+class=3D""><br class=3D""><div class=3D"">
+<div style=3D"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); =
+font-family: Arial; font-size: 10px; font-style: normal; =
+font-variant-caps: normal; font-weight: normal; letter-spacing: normal; =
+orphans: auto; text-align: start; text-indent: 0px; text-transform: =
+none; white-space: normal; widows: auto; word-spacing: 0px; =
+-webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; =
+text-decoration: none;" class=3D""><span><b class=3D"">Jo=C3=A3o =
+Ros=C3=A1rio</b><br class=3D"">912346865</span></div><span =
+style=3D"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-family: =
+Arial; font-size: 10px; font-style: normal; font-variant-caps: normal; =
+font-weight: normal; letter-spacing: normal; orphans: auto; text-align: =
+start; text-indent: 0px; text-transform: none; white-space: normal; =
+widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; =
+-webkit-text-stroke-width: 0px; text-decoration: none;"><div =
+class=3D""><span><br class=3D""></span></div></span><br =
+class=3D"Apple-interchange-newline"><span><img apple-inline=3D"yes" =
+id=3D"3D8DA067-B018-4249-80AE-D5762B864A7A" =
+src=3D"cid:B1491769-BFA5-4A8D-BFC3-76D8F8B8C52F@netcabo.pt" =
+class=3D""></span><br class=3D"Apple-interchange-newline"><br =
+style=3D"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-family: =
+Arial; font-size: 10px; font-style: normal; font-variant-caps: normal; =
+font-weight: normal; letter-spacing: normal; orphans: auto; text-align: =
+start; text-indent: 0px; text-transform: none; white-space: normal; =
+widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; =
+-webkit-text-stroke-width: 0px; text-decoration: none;" class=3D""><span =
+style=3D"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-family: =
+Arial; font-size: 10px; font-style: normal; font-variant-caps: normal; =
+font-weight: normal; letter-spacing: normal; orphans: auto; text-align: =
+start; text-indent: 0px; text-transform: none; white-space: normal; =
+widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; =
+-webkit-text-stroke-width: 0px; text-decoration: none; display: inline =
+!important; float: none;" class=3D"">Cal=C3=A7ada do Duque de Laf=C3=B5es =
+76,78,80</span><br style=3D"caret-color: rgb(0, 0, 0); color: rgb(0, 0, =
+0); font-family: Arial; font-size: 10px; font-style: normal; =
+font-variant-caps: normal; font-weight: normal; letter-spacing: normal; =
+orphans: auto; text-align: start; text-indent: 0px; text-transform: =
+none; white-space: normal; widows: auto; word-spacing: 0px; =
+-webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; =
+text-decoration: none;" class=3D""><span style=3D"caret-color: rgb(0, 0, =
+0); color: rgb(0, 0, 0); font-family: Arial; font-size: 10px; =
+font-style: normal; font-variant-caps: normal; font-weight: normal; =
+letter-spacing: normal; orphans: auto; text-align: start; text-indent: =
+0px; text-transform: none; white-space: normal; widows: auto; =
+word-spacing: 0px; -webkit-text-size-adjust: auto; =
+-webkit-text-stroke-width: 0px; text-decoration: none; display: inline =
+!important; float: none;" class=3D"">1950 102 =
+Lisboa&nbsp;&nbsp;</span><br style=3D"caret-color: rgb(0, 0, 0); color: =
+rgb(0, 0, 0); font-family: Arial; font-size: 10px; font-style: normal; =
+font-variant-caps: normal; font-weight: normal; letter-spacing: normal; =
+orphans: auto; text-align: start; text-indent: 0px; text-transform: =
+none; white-space: normal; widows: auto; word-spacing: 0px; =
+-webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; =
+text-decoration: none;" class=3D""><br style=3D"caret-color: rgb(0, 0, =
+0); color: rgb(0, 0, 0); font-family: Arial; font-size: 10px; =
+font-style: normal; font-variant-caps: normal; font-weight: normal; =
+letter-spacing: normal; orphans: auto; text-align: start; text-indent: =
+0px; text-transform: none; white-space: normal; widows: auto; =
+word-spacing: 0px; -webkit-text-size-adjust: auto; =
+-webkit-text-stroke-width: 0px; text-decoration: none;" class=3D""><b =
+style=3D"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-family: =
+Arial; font-size: 10px; font-style: normal; font-variant-caps: normal; =
+letter-spacing: normal; orphans: auto; text-align: start; text-indent: =
+0px; text-transform: none; white-space: normal; widows: auto; =
+word-spacing: 0px; -webkit-text-size-adjust: auto; =
+-webkit-text-stroke-width: 0px; text-decoration: none;" =
+class=3D"">M.</b><span class=3D"Apple-converted-space" =
+style=3D"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-family: =
+Arial; font-size: 10px; font-style: normal; font-variant-caps: normal; =
+font-weight: normal; letter-spacing: normal; orphans: auto; text-align: =
+start; text-indent: 0px; text-transform: none; white-space: normal; =
+widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; =
+-webkit-text-stroke-width: 0px; text-decoration: =
+none;">&nbsp;</span><span style=3D"caret-color: rgb(0, 0, 0); color: =
+rgb(0, 0, 0); font-family: Arial; font-size: 10px; font-style: normal; =
+font-variant-caps: normal; font-weight: normal; letter-spacing: normal; =
+orphans: auto; text-align: start; text-indent: 0px; text-transform: =
+none; white-space: normal; widows: auto; word-spacing: 0px; =
+-webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; =
+text-decoration: none; display: inline !important; float: none;" =
+class=3D""><a href=3D"mailto:mail@ilobo.pt" =
+class=3D"">mail@ilobo.pt</a></span><br style=3D"caret-color: rgb(0, 0, =
+0); color: rgb(0, 0, 0); font-family: Arial; font-size: 10px; =
+font-style: normal; font-variant-caps: normal; font-weight: normal; =
+letter-spacing: normal; orphans: auto; text-align: start; text-indent: =
+0px; text-transform: none; white-space: normal; widows: auto; =
+word-spacing: 0px; -webkit-text-size-adjust: auto; =
+-webkit-text-stroke-width: 0px; text-decoration: none;" class=3D""><b =
+style=3D"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-family: =
+Arial; font-size: 10px; font-style: normal; font-variant-caps: normal; =
+letter-spacing: normal; orphans: auto; text-align: start; text-indent: =
+0px; text-transform: none; white-space: normal; widows: auto; =
+word-spacing: 0px; -webkit-text-size-adjust: auto; =
+-webkit-text-stroke-width: 0px; text-decoration: none;" =
+class=3D"">W.</b><span style=3D"caret-color: rgb(0, 0, 0); color: rgb(0, =
+0, 0); font-family: Arial; font-size: 10px; font-style: normal; =
+font-variant-caps: normal; font-weight: normal; letter-spacing: normal; =
+orphans: auto; text-align: start; text-indent: 0px; text-transform: =
+none; white-space: normal; widows: auto; word-spacing: 0px; =
+-webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; =
+text-decoration: none; display: inline !important; float: none;" =
+class=3D"">&nbsp;<a href=3D"http://www.ilobo.pt" =
+class=3D"">www.ilobo.pt</a></span><br style=3D"caret-color: rgb(0, 0, =
+0); color: rgb(0, 0, 0); font-family: Arial; font-size: 10px; =
+font-style: normal; font-variant-caps: normal; font-weight: normal; =
+letter-spacing: normal; orphans: auto; text-align: start; text-indent: =
+0px; text-transform: none; white-space: normal; widows: auto; =
+word-spacing: 0px; -webkit-text-size-adjust: auto; =
+-webkit-text-stroke-width: 0px; text-decoration: none;" class=3D""><br =
+style=3D"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-family: =
+Arial; font-size: 10px; font-style: normal; font-variant-caps: normal; =
+font-weight: normal; letter-spacing: normal; orphans: auto; text-align: =
+start; text-indent: 0px; text-transform: none; white-space: normal; =
+widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; =
+-webkit-text-stroke-width: 0px; text-decoration: none;" class=3D""><br =
+style=3D"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-family: =
+Arial; font-size: 10px; font-style: normal; font-variant-caps: normal; =
+font-weight: normal; letter-spacing: normal; orphans: auto; text-align: =
+start; text-indent: 0px; text-transform: none; white-space: normal; =
+widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; =
+-webkit-text-stroke-width: 0px; text-decoration: none;" class=3D""><br =
+style=3D"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-family: =
+Arial; font-size: 10px; font-style: normal; font-variant-caps: normal; =
+font-weight: normal; letter-spacing: normal; orphans: auto; text-align: =
+start; text-indent: 0px; text-transform: none; white-space: normal; =
+widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; =
+-webkit-text-stroke-width: 0px; text-decoration: none;" class=3D""><b =
+style=3D"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-family: =
+Arial; font-size: 10px; font-style: normal; font-variant-caps: normal; =
+letter-spacing: normal; orphans: auto; text-align: start; text-indent: =
+0px; text-transform: none; white-space: normal; widows: auto; =
+word-spacing: 0px; -webkit-text-size-adjust: auto; =
+-webkit-text-stroke-width: 0px; text-decoration: none;" class=3D"">Aviso =
+de Confidencialidade:</b><span style=3D"caret-color: rgb(0, 0, 0); =
+color: rgb(0, 0, 0); font-family: Arial; font-size: 10px; font-style: =
+normal; font-variant-caps: normal; font-weight: normal; letter-spacing: =
+normal; orphans: auto; text-align: start; text-indent: 0px; =
+text-transform: none; white-space: normal; widows: auto; word-spacing: =
+0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; =
+text-decoration: none; display: inline !important; float: none;" =
+class=3D"">&nbsp;Esta mensagem (e&nbsp;eventuais ficheiros anexos) =
+destina-se&nbsp;exclusivamente aos destinat=C3=A1rios nela indicados =
+e&nbsp;pode conter mat=C3=A9ria confidencial e =
+legalmente&nbsp;protegida. Se recebeu esta mensagem por engano,&nbsp;por =
+favor informe de imediato o remetente e elimine&nbsp;a mensagem e os =
+ficheiros sem os reproduzir.</span><br style=3D"caret-color: rgb(0, 0, =
+0); color: rgb(0, 0, 0); font-family: Arial; font-size: 10px; =
+font-style: normal; font-variant-caps: normal; font-weight: normal; =
+letter-spacing: normal; orphans: auto; text-align: start; text-indent: =
+0px; text-transform: none; white-space: normal; widows: auto; =
+word-spacing: 0px; -webkit-text-size-adjust: auto; =
+-webkit-text-stroke-width: 0px; text-decoration: none;" class=3D""><br =
+style=3D"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-family: =
+Arial; font-size: 10px; font-style: normal; font-variant-caps: normal; =
+font-weight: normal; letter-spacing: normal; orphans: auto; text-align: =
+start; text-indent: 0px; text-transform: none; white-space: normal; =
+widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; =
+-webkit-text-stroke-width: 0px; text-decoration: none;" class=3D""><b =
+style=3D"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-family: =
+Arial; font-size: 10px; font-style: normal; font-variant-caps: normal; =
+letter-spacing: normal; orphans: auto; text-align: start; text-indent: =
+0px; text-transform: none; white-space: normal; widows: auto; =
+word-spacing: 0px; -webkit-text-size-adjust: auto; =
+-webkit-text-stroke-width: 0px; text-decoration: none;" =
+class=3D"">Confidentiality Warning::</b><span style=3D"caret-color: =
+rgb(0, 0, 0); color: rgb(0, 0, 0); font-family: Arial; font-size: 10px; =
+font-style: normal; font-variant-caps: normal; font-weight: normal; =
+letter-spacing: normal; orphans: auto; text-align: start; text-indent: =
+0px; text-transform: none; white-space: normal; widows: auto; =
+word-spacing: 0px; -webkit-text-size-adjust: auto; =
+-webkit-text-stroke-width: 0px; text-decoration: none;" =
+class=3D"">&nbsp;This message (and any&nbsp;files attached) is intended =
+only for the named&nbsp;addressees and may contain confidential =
+and&nbsp;privileged information. If you have received this&nbsp;message =
+in error, please contact the sender and&nbsp;delete the message and any =
+files attached without&nbsp;reproduction.<br class=3D""><br class=3D""><br=
+ class=3D""><br class=3D""><br class=3D""><br class=3D""></span>
+</div>
+<div><br class=3D""><blockquote type=3D"cite" class=3D""><div =
+class=3D"">On 8 Apr 2019, at 20:35, Regina Casimiro &lt;<a =
+href=3D"mailto:reginacasimiro@gmail.com" =
+class=3D"">reginacasimiro@gmail.com</a>&gt; wrote:</div><br =
+class=3D"Apple-interchange-newline"><div class=3D""><div class=3D""><br =
+class=3D""><br class=3D""><span =
+id=3D"cid:FB08F880-C99E-4E1A-931A-58C7CACE2761@lan">&lt;IMG_0214.JPG&gt;</=
+span><br class=3D""><br class=3D""><br class=3D""><br class=3D""><br =
+class=3D""><br class=3D""><br class=3D""><br class=3D""><span =
+id=3D"cid:7D8660B4-8991-4B7F-ADAE-4E62DBCAB1A3@lan">&lt;IMG_0216.JPG&gt;</=
+span><br class=3D""><br class=3D""><br class=3D"">Enviado do meu =
+iPhone</div></div></blockquote></div><br class=3D""></div></body></html>=
+
+--Apple-Mail=_EB220AE4-A739-43F3-BF12-8DA4C8EDEAEC
+Content-Transfer-Encoding: base64
+Content-Disposition: inline;
+	filename=PastedGraphic-1.png
+Content-Type: image/png;
+	x-unix-mode=0666;
+	name="PastedGraphic-1.png"
+Content-Id: <B1491769-BFA5-4A8D-BFC3-76D8F8B8C52F@netcabo.pt>
+
+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
+S3N4hutQAAAAAElFTkSuQmCC
+--Apple-Mail=_EB220AE4-A739-43F3-BF12-8DA4C8EDEAEC--
+
+--Apple-Mail=_6C962899-4781-4653-8F6C-0EFA15DB6DCA--
